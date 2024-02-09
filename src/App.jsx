@@ -33,9 +33,10 @@ function App() {
     fetchSpecies();
   }, []);
 
-  const handleFilterList = async (category_id) => {
+  const handleFilterList = async () => {
     try {
-      const response = await axios.get('/api/getSpeciesByCategory');
+      console.log("handleFilter: " + category_id);
+      const response = await axios.get('/api/getSpeciesByCategory', { params: category_id });
       setSpecies(response.data);
     } catch (err) {
       console.error('Error getting filtered species: ', response.status);
@@ -73,9 +74,9 @@ function App() {
 
   return (
     <>
-      <div id="title-filter" className="flexbox-container">
-        <div>
-          <span>THE ANIMAL APP</span>
+      <div id='app-top'>
+        <div id="title-filter">
+          <div id='app-title'>THE ANIMAL APP</div>
           <label>
             Filter by:
             <select
@@ -98,7 +99,7 @@ function App() {
             </select>
           </label>
         </div>
-        <div id="animal-input" className="rightColumn flexbox-item">
+        <div id="animal-input">
           <form>
               <label>
                 Name:
@@ -110,21 +111,22 @@ function App() {
                 />
               </label>
               <label>
-                  <select
-                      onChange={(e) => setFormData({ ...formData, category: +e.target.value })}
-                  >
-                    <option value="">Select a category</option>
-                    {categories.map((category) => (
-                      <option
-                        key={category.category_id}
-                        id={`category-${category.category_id}`}
-                        name={category.name}
-                        value={category.category_id}
-                      >
-                        {category.name}
-                      </option>
-                    ))}
-                  </select>
+                Animal category: 
+                <select
+                    onChange={(e) => setFormData({ ...formData, category: +e.target.value })}
+                >
+                  <option value="">Select a category</option>
+                  {categories.map((category) => (
+                    <option
+                      key={category.category_id}
+                      id={`category-${category.category_id}`}
+                      name={category.name}
+                      value={category.category_id}
+                    >
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
               </label>
               <label>
                 Length (ft):

@@ -24,6 +24,7 @@ app.get("/api/getAllSpecies", async (req, res) => {
 
 app.get("/api/getSpeciesByCategory", async (req, res) => {
   const { category } = req.query;
+  console.log("server category " + category);
   const response = await Species.findAll({
     where: { category: category },
   });

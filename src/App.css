@@ -5,8 +5,37 @@
   text-align: center;
 }
 
-.animal-card-container {
+#app-top {
   display: flex;
+  flex-direction: row;
+  border: 0.5rem outset pink;
+  outline: 0.5rem solid khaki;
+  box-shadow: 0 0 0 2rem skyblue;
+  border-radius: 12px;
+  font: bold 1rem sans-serif;
+  margin: 2rem;
+  padding: 1rem;
+  outline-offset: 0.5rem;
+}
+
+#title-filter {
+  flex-direction: column;
+}
+
+#animal-input {
+  flex-direction: column;
+}
+
+#animal-card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+label {
+  display: block;
+  padding: 0.3rem;
 }
 
 img {
