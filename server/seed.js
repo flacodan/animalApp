@@ -7,13 +7,13 @@ await db.sync({ force: true });
 console.log("Seeding database...");
 
 const categoriesToCreate = [
-  { name: "mammal", color: "red" },
-  { name: "reptile", color: "purple" },
-  { name: "bird", color: "blue" },
-  { name: "amphibian", color: "brown" },
-  { name: "fish", color: "green" },
-  { name: "bug", color: "yellow" },
-  { name: "other", color: "gray" },
+  { name: "mammal", color: "#FF0000" },
+  { name: "reptile", color: "#800080" },
+  { name: "bird", color: "#ADD8E6" },
+  { name: "amphibian", color: "	#C04000" },
+  { name: "fish", color: "#00FF00" },
+  { name: "bug", color: "#FFFF33" },
+  { name: "other", color: "b7cdd8" },
 ];
 
 const categoriesInDB = await Promise.all(

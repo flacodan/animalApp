@@ -6,7 +6,7 @@
   "scripts": {
     "initdb": "dropdb --if-exists animalapp && createdb animalapp",
     "seed": "node server/seed.js",
-    "dev": "vite",
+    "dev": "node server/server.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
